@@ -12,8 +12,8 @@ def wait():
     input('按Enter继续')
 
 def create_save_db():
-    """创建或连接到save.db数据库，确保其存在。"""
-    conn = sqlite3.connect('save.db')
+    """创建或连接到save_old.db数据库，确保其存在。"""
+    conn = sqlite3.connect('save_old.db')
     cursor = conn.cursor()
     # 创建表格用于保存每个题目的正确情况
     cursor.execute('''
@@ -35,7 +35,7 @@ def get_questions():
     return questions
 
 def update_save_db(conn, question_id, correct):
-    """更新save.db中每个题目的正确情况。"""
+    """更新save_old.db中每个题目的正确情况。"""
     cursor = conn.cursor()
     if correct:
         cursor.execute('''
